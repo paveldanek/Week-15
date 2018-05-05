@@ -1,10 +1,10 @@
 ## Compiling Source code for language C in Linux
 
-I decided to compile [netboot.xyz](https://github.com/antonym/netboot.xyz) (of a great Linux and IPXE scripter, Antony Messerli) for our group project. I had some help in [one of his scripts](https://github.com/antonym/netboot.xyz/blob/master/script/prep-release.sh), where I could observe, how the compiling is done.
+I decided to compile [netboot.xyz](https://github.com/antonym/netboot.xyz) (of a great Linux and iPXE scripter, Antony Messerli) for our group project. I had some help in [one of his scripts](https://github.com/antonym/netboot.xyz/blob/master/script/prep-release.sh), where I could observe, how the compiling is done.
 It's achieved by using the command `make`, assuming we have all neccesary libraries downloaded in our computer. 
 
 At first, I tried to run the command `make` with the specification _what kind_ of file I need, _my script_ that I need to embed and _certificates_ he was adding into the compilation.
-The command looked somewhat like this: `make <filename.type I need> EMBED=<myscript> TRUST=<certificate1>.crt,<certificate2>.crt`. Unfortunately, this **didn't work**, because I didn't have the mentioned certificates available. Another developer, iPXE head engineer Micheal Brown advised, that I can _skip_ the certificates in the compilation and so I did.
+The command looked somewhat like this: `make <filename.type I need> EMBED=<myscript> TRUST=<certificate1>.crt,<certificate2>.crt`. Unfortunately, this **didn't work**, because I didn't have the mentioned certificates available. Another developer, iPXE head engineer Micheal Brown, advised, that I can _skip_ the certificates in the compilation, so I did.
 
 Next problem I ran into was "`fatal error: lzma.h: No such file or directory. Compilation terminated.`". It looked like I was missing a library, even though I tried to download all of them, including _lzma_. As it turned out (after googling for a while), I found out the library I needed was called _liblzma-dev_. I had to install it by using:
 `sudo apt-get install -y liblzma-dev`.
